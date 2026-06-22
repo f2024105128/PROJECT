@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="hero">
+    <h1>Welcome to ShopEase</h1>
+    <p>Discover Amazing Products at Best Prices</p>
+</section>
+
+<section class="products">
+
+    {% for product in products %}
+    <div class="card">
+
+        <img src="{{ product.image }}" alt="{{ product.name }}">
+
+        <div class="card-body">
+            <h3>{{ product.name }}</h3>
+
+            <p class="price">${{ product.price }}</p>
+
+            <a href="/add_to_cart/{{ product.id }}" class="btn">
+                Add To Cart
+            </a>
+        </div>
+
+    </div>
+    {% endfor %}
+
+</section>
+
+{% endblock %}
